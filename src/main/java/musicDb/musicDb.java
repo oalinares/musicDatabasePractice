@@ -16,7 +16,7 @@ public class musicDb {
 	private MusicDb curArtist;
 	//@formatter:off
 	private List<String> operations = List.of(
-			"1) Add an artist"
+			"1) Create and populate tables"
 			);
 	//@formatter:on
 public static void main(String[] args) {
