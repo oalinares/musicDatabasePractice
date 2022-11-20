@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Time;
+import java.util.List;
 
 import musicDb.musicDb;
 import musicDb.entity.Artist;
@@ -18,8 +20,8 @@ public class MusicDbDao extends DaoBase {
 	private static final String ALBUM_TABLE = "album";
 	private static final String GENRE_TABLE = "genre";
 	private static final String SIDEPROJECT_TABLE = "sideproject";
-	private static final String GENRE_MUSICDB_TABLE = "artist_genre";
-	private static final String GENRE_ALBUM_TABLE = "album_genre";
+	private static final String ARTIST_GENRE_TABLE = "artist_genre";
+	private static final String ALBUM_GENRE_TABLE = "album_genre";
 
 /**
  * Inserts the Artist including the name, formation of band or solo date, a rating of the 
@@ -61,5 +63,26 @@ public Artist insertArtist(Artist artist) {
 	}
 }
 
+public void executeBatch(List<String> sqlBatch) {
+	try(Connection conn = DbConnection.getConnection()) {
+		startTransaction(conn);
+		
+		try(Statement stmt = conn.createStatement()) {
+			for(String sql : sqlBatch) {
+				stmt.addBatch(sql);
+			}
+			stmt.executeBatch();
+			commitTransaction(conn);
+		}
+		catch(Exception e) {
+			rollbackTransaction(conn);
+			throw new DbException(e);
+		}
+	} catch (SQLException e) {
+		throw new DbException(e);
+	}
+}	
 }
+
+
 	
