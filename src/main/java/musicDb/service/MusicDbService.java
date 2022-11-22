@@ -90,4 +90,8 @@ public class MusicDbService {
 			throw new DbException(e);
 		}
 	}
+
+	public Artist addArtist(Artist artist) {
+		return musicDbDao.insertArtist(artist);
+	}
 }

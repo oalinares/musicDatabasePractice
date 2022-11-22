@@ -43,8 +43,8 @@ public Artist insertArtist(Artist artist) {
 		
 		try(PreparedStatement stmt = conn.prepareStatement(sql)) {
 			setParameter(stmt, 1, artist.getArtistName(), String.class);
-			setParameter(stmt, 2, artist.getInitialFormation(), Time.class);
-			setParameter(stmt, 3, artist.getArtistRating(), BigDecimal.class);
+			setParameter(stmt, 2, artist.getInitialFormation(), Integer.class);
+			setParameter(stmt, 3, artist.getArtistRating(), Double.class);
 			setParameter(stmt, 4, artist.getNotes(), String.class);
 			setParameter(stmt, 5, artist.getActive(), Boolean.class);
 			

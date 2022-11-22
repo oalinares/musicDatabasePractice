@@ -92,7 +92,9 @@ public abstract class DaoBase {
         case Types.OTHER:
           stmt.setObject(parameterIndex, value);
           break;
-
+        case Types.BOOLEAN:
+        	stmt.setObject(parameterIndex, classType);
+        	break;
         case Types.VARCHAR:
           stmt.setString(parameterIndex, (String)value);
           break;
@@ -125,7 +127,9 @@ public abstract class DaoBase {
     if(BigDecimal.class.equals(classType)) {
       return Types.DECIMAL;
     }
-
+    if(Boolean.class.equals(classType)) {
+    	return Types.BOOLEAN;
+    }
     if(LocalTime.class.equals(classType)) {
       return Types.OTHER;
     }

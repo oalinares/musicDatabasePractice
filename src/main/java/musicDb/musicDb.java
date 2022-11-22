@@ -67,7 +67,7 @@ public static void main(String[] args) {
 		Artist dbArtist = musicDbService.addArtist(artist);
 		System.out.println("You added this artist:\n" + dbArtist);
 		
-		curArtist = musicDbService.fetchArtistById(dbArtist.getArtistId());
+		//curArtist = musicDbService.fetchArtistById(dbArtist.getArtistId());
 		
 		
 	}

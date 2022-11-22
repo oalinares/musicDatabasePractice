@@ -8,7 +8,7 @@ public class Artist {
 	private Integer artistId;
 	private String artistName;
 	private Integer initialFormation;
-	private BigDecimal artistRating;
+	private Double artistRating;
 	private String notes;
 	private Boolean active; 
 	
@@ -71,12 +71,12 @@ public class Artist {
 		this.initialFormation = initialFormation;
 	}
 
-	public BigDecimal getArtistRating() {
+	public Double getArtistRating() {
 		return artistRating;
 	}
 
-	public void setArtistRating(Double artistRating2) {
-		this.artistRating = artistRating2;
+	public void setArtistRating(Double artistRating) {
+		this.artistRating = artistRating;
 	}
 
 	public String getNotes() {
