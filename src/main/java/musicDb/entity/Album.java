@@ -1,12 +1,10 @@
 package musicDb.entity;
 
-import java.time.Year;
-
 public class Album {
 	private Integer albumId;
 	private Integer artistId;
 	private String albumName;
-	private Year releaseDate;
+	private Integer releaseDate;
 	private Integer albumRating;
 	private String albumNotes;
 	
@@ -28,10 +26,10 @@ public class Album {
 	public void setAlbumName(String albumName) {
 		this.albumName = albumName;
 	}
-	public Year getReleaseDate() {
+	public Integer getReleaseDate() {
 		return releaseDate;
 	}
-	public void setReleaseDate(Year releaseDate) {
+	public void setReleaseDate(Integer releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 	public Integer getAlbumRating() {

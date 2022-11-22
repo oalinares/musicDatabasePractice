@@ -1,14 +1,13 @@
 package musicDb.entity;
 
 import java.math.BigDecimal;
-import java.time.Year;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Artist {
 	private Integer artistId;
 	private String artistName;
-	private Year initialFormation;
+	private Integer initialFormation;
 	private BigDecimal artistRating;
 	private String notes;
 	private Boolean active; 
@@ -64,11 +63,11 @@ public class Artist {
 		this.artistName = artistName;
 	}
 
-	public Year getInitialFormation() {
+	public Integer getInitialFormation() {
 		return initialFormation;
 	}
 
-	public void setInitialFormation(Year initialFormation) {
+	public void setInitialFormation(Integer initialFormation) {
 		this.initialFormation = initialFormation;
 	}
 
@@ -76,8 +75,8 @@ public class Artist {
 		return artistRating;
 	}
 
-	public void setArtistRating(BigDecimal artistRating) {
-		this.artistRating = artistRating;
+	public void setArtistRating(Double artistRating2) {
+		this.artistRating = artistRating2;
 	}
 
 	public String getNotes() {
